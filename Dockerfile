@@ -36,4 +36,12 @@ RUN cp ethereum-generate-wallet/ethereum-wallet-generator.py vutil/ethereum-wall
 RUN cp ethereum-generate-wallet/requirements.txt vutil/requirements.txt
 RUN apt-get install -y python3-pip
 RUN pip3 install -r vutil/requirements.txt
+RUN apt-get install -y wget
+RUN wget https://storage.googleapis.com/kubernetes-release/release/v1.12.3/bin/linux/amd64/kubectl
+RUN chmod u+x kubectl
+RUN mv kubectl /usr/local/bin/kubectl
+RUN wget https://get.helm.sh/helm-v2.12.2-linux-amd64.tar.gz
+RUN tar -zxvf helm-v2.12.2-linux-amd64.tar.gz
+RUN mv linux-amd64/helm /usr/local/bin/helm
+COPY ./infernos-banzaicloud-k8s.yaml /root/.kube/config
 #RUN PORT=4080 node vutil/server.js
