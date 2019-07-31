@@ -1,4 +1,3 @@
-
 FROM golang:1.11 as go-builder
 
 RUN go get github.com/hashicorp/packer
