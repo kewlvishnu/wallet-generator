@@ -42,5 +42,6 @@ RUN mv kubectl /usr/local/bin/kubectl
 RUN wget https://get.helm.sh/helm-v2.12.2-linux-amd64.tar.gz
 RUN tar -zxvf helm-v2.12.2-linux-amd64.tar.gz
 RUN mv linux-amd64/helm /usr/local/bin/helm
+RUN mv linux-amd64/tiller /usr/local/bin/tiller
 COPY ./infernos-banzaicloud-k8s.yaml /root/.kube/config
 #RUN PORT=4080 node vutil/server.js
